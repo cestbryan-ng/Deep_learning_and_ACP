@@ -29,6 +29,12 @@ def descent_gradient(W, b, X, Y, A, pas_dentrainement) :
     b -= pas_dentrainement * np.sum(A - Y) / len(Y)
     return W, b
 
+# Predict
+def predict(X, W, b) :
+    Z = model(X, W, b)
+    A = sigmoid_matrix(Z)
+    print(A >= 0.5)
+
 # Neuronne
 def neuron(X, Y, pas_dentrainement = 0.1 , nombre_iter = 100) :
     W = np.random.randn(2, 1)
@@ -58,7 +64,6 @@ x2 = np.array([8, 5, 9, 7, 10, 6, 10, 11, 8])
 X1 = x1
 X2 = x2
 x1_copy1, x2_copy1 = deepcopy(x1), deepcopy(x2)
-print(x2_copy1)
 
 x1 = np.array([10, 11, 12, 13, 14, 15, 16, 17, 18])
 x2 = np.array([1, 1.2, 3, 4, 2, 3.4, 1.8, 4, 2.1])
@@ -71,6 +76,12 @@ Y = np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 Y = Y.reshape(len(Y), 1)
 
 W, b = neuron(X, Y)
+
+# Test avec une cellule
+X = np.array([[1, 2]])
+predict(X, W, b)
+
+# Trace de la frontiere de decision
 x_frontiere = np.linspace(min(x1_copy1), max(x1_copy2), 100)
 y_frontiere = - (x_frontiere * W[0] + b) / W[1]
 plt.title("Neuronne d'itendification de cellule cancereuse")
@@ -79,4 +90,5 @@ plt.scatter(x1_copy2, x2_copy2, color = 'red', label = "Cellule saine")
 plt.plot(x_frontiere, y_frontiere, color = "blue", label = "Frontière de décision")
 plt.legend()
 plt.show()
+
 
