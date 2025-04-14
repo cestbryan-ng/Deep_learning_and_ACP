@@ -90,5 +90,3 @@ plt.scatter(x1_copy2, x2_copy2, color = 'red', label = "Cellule saine")
 plt.plot(x_frontiere, y_frontiere, color = "blue", label = "Frontière de décision")
 plt.legend()
 plt.show()
-
-
