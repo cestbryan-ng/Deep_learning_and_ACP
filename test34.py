@@ -82,7 +82,7 @@ X = np.hstack((X1.reshape(len(X1), 1), X2.reshape(len(X2), 1)))
 W, b, A = neuron(X, Y)
 
 # Test avec une cellule
-X = np.array([48, 32])
+X = np.array([49, 35])
 probabilité = predict(X, W, b)[0]
 print("Cellule canceureuse ? ", probabilité >= 0.5)
 print(A)
