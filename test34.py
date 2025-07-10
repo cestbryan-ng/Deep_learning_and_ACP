@@ -85,8 +85,6 @@ W, b, A = neuron(X, Y)
 X = np.array([49, 35])
 probabilité = predict(X, W, b)[0]
 print("Cellule canceureuse ? ", probabilité >= 0.5)
-print(A)
-print(A >= 0.5)
 
 # Trace de la frontiere de decision
 x_frontiere = np.linspace(min(x1_copy1), max(x1_copy2), 100)
